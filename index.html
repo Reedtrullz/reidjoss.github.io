@@ -8,11 +8,21 @@
   </head>
   <body>
 
+    <!-- Dette er feltet for valg av mekaniker -->
     <form>
       <div class="form-group">
-        <label for="exampleFormControlInput1">Email address</label>
-        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        <label for="exampleFormControlSelect1">Mekaniker</label>
+        <select class="form-control" id="exampleFormControlSelect1">
+          <option>Isak Danielsen</option>
+          <option>Ansatt2</option>
+          <option>Ansatt3</option>
+          <option>Ansatt4</option>
+          <option>Ansatt5</option>
+        </select>
       </div>
+      </form>
+      <!-- Dette er feltet for valg av bedriftsavtale -->
+      <form>
       <div class="form-group">
         <label for="exampleFormControlSelect1">Bedriftsavtale?</label>
         <select class="form-control" id="exampleFormControlSelect1">
@@ -31,9 +41,9 @@
           <option>Arbeidsledig</option>
         </select>
       </div>
-
-      <form>
+      </form>
       <!-- Dette er control select for å definere bilens verdi -->
+      <form>
       <div class="form-group">
         <label for="exampleFormControlSelect2">Hva er bilens verdi?</label>
         <select multiple class="form-control" id="exampleFormControlSelect2">
@@ -191,5 +201,22 @@
   <label class="form-check-label" for="inlineCheckbox2">Nei</label>
 </div>
                     </form>
+                    <!--Dette er feltet for importbil-->
+                    <form>
+                      <b>Er det en importbil?</b>
+                      <div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+  <label class="form-check-label" for="inlineCheckbox1">Ja</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+  <label class="form-check-label" for="inlineCheckbox2">Nei</label>
+</div>
+                    </form>
+                    <!-- Dette er feltet for prisen kunde skal se -->
+                    <form>
+                      <b>Totalpris til kunde</b>
+<input class="form-control" type="text" placeholder="Kundepris her" readonly>
+</form>
   </body>
 </html>
