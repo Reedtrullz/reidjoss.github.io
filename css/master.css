@@ -6,7 +6,8 @@
   min-width: 25rem;
 }
 
-form .card {
+form .card,
+.loginbox .card {
   margin-top: 1rem;
 }
 
