@@ -10,167 +10,159 @@
   <div class="container-fluid">
     <div class="row justify-content-md-center">
       <div class="col-lg-8 col-sm-12 skjemaboks">
-        <div class="card tuningskjema">
-          <div class="card-body">
-        <!-- Dette er feltet for valg av mekaniker -->
-        <form>
-          <div class="form-group">
-            <label for="mekaniker">Mekaniker</label>
-            <select class="form-control" id="mekaniker">
-              <option>Isak Danielsen</option>
-              <option>Ansatt2</option>
-              <option>Ansatt3</option>
-              <option>Ansatt4</option>
-              <option>Ansatt5</option>
-            </select>
-          </div>
-
-          <!-- Dette er feltet for valg av bedriftsavtale -->
-
-          <div class="form-group">
-            <label for="bedriftsavtale">Bedriftsavtale?</label>
-            <select class="form-control" id="bedriftsavtale">
-              <option>Politiet</option>
-              <option>Ambulansen</option>
-              <option>Trøndertaxi</option>
-              <option>Bilforhandleren</option>
-              <option>DNB Bank</option>
-              <option>Eiendomsmegler1</option>
-              <option>Flyskolen</option>
-              <option>Bahama Mamas</option>
-              <option>AutoXO</option>
-              <option>Bennys</option>
-              <option>Oslo Advokaten</option>
-              <option>Statens Vegvesen</option>
-              <option>Arbeidsledig</option>
-            </select>
-          </div>
-
-          <!-- Dette er control select for å definere bilens verdi -->
-
-          <div class="form-group">
-            <label for="verdi">Hva er bilens verdi?</label>
-            <select multiple class="form-control" id="verdi">
-              <option>0K-100K</option>
-              <option>100K-200K</option>
-              <option>200K-500K</option>
-              <option>500K-1M</option>
-              <option>1M-1.5M</option>
-              <option>1.5M-2M</option>
-              <option>2M-3M</option>
-            </select>
-          </div>
-
-          <!--Dette er feltet for bremser-->
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="bremser">Hvilke bremser</label>
+        <div class="tuningskjema">
+          <!-- Dette er feltet for valg av mekaniker -->
+          <form>
+            <div class="form-group">
+              <label for="mekaniker">Mekaniker</label>
+              <select class="form-control" id="mekaniker">
+                <option>Isak Danielsen</option>
+                <option>Ansatt2</option>
+                <option>Ansatt3</option>
+                <option>Ansatt4</option>
+                <option>Ansatt5</option>
+              </select>
             </div>
-            <select class="custom-select" id="bremser">
-              <option selected>Velg tuningnivå</option>
-              <option value="BREMS0">Standard</option>
-              <option value="BREMS1">Steg 1</option>
-              <option value="BREMS2">Steg 2</option>
-              <option value="BREMS3">Steg 3</option>
-              <option value="BREMS4">Steg 4</option>
-            </select>
-          </div>
 
-          <!--Dette er feltet for girkasse-->
+            <!-- Dette er feltet for valg av bedriftsavtale -->
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="girkasse">Hvilken girkasse</label>
+            <div class="form-group">
+              <label for="bedriftsavtale">Bedriftsavtale?</label>
+              <select class="form-control" id="bedriftsavtale">
+                <option>Politiet</option>
+                <option>Ambulansen</option>
+                <option>Trøndertaxi</option>
+                <option>Bilforhandleren</option>
+                <option>DNB Bank</option>
+                <option>Eiendomsmegler1</option>
+                <option>Flyskolen</option>
+                <option>Bahama Mamas</option>
+                <option>AutoXO</option>
+                <option>Bennys</option>
+                <option>Oslo Advokaten</option>
+                <option>Statens Vegvesen</option>
+                <option>Arbeidsledig</option>
+              </select>
             </div>
-            <select class="custom-select" id="girkasse">
-              <option selected>Velg tuningnivå</option>
-              <option value="GIR0">Standard</option>
-              <option value="GIR1">Steg 1</option>
-              <option value="GIR2">Steg 2</option>
-              <option value="GIR3">Steg 3</option>
-            </select>
-          </div>
 
-          <!--Dette er feltet for motor-->
+            <!-- Dette er control select for å definere bilens verdi -->
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="motor">Hvilken motor</label>
+            <div class="form-group">
+              <label for="verdi">Hva er bilens verdi?</label>
+              <select multiple class="form-control" id="verdi">
+                <option>0K-100K</option>
+                <option>100K-200K</option>
+                <option>200K-500K</option>
+                <option>500K-1M</option>
+                <option>1M-1.5M</option>
+                <option>1.5M-2M</option>
+                <option>2M-3M</option>
+              </select>
             </div>
-            <select class="custom-select" id="motor">
-              <option selected>Velg tuningnivå</option>
-              <option value="MOTOR0">Standard</option>
-              <option value="MOTOR1">Steg 1</option>
-              <option value="MOTOR2">Steg 2</option>
-              <option value="MOTOR3">Steg 3</option>
-              <option value="MOTOR4">Steg 4</option>
-              <option value="MOTOR5">Steg 5</option>
-            </select>
-          </div>
 
-          <!--Dette er feltet for pansring-->
+            <!--Dette er feltet for bremser-->
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="pansring">Hvilken pansring</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="bremser">Hvilke bremser</label>
+              </div>
+              <select class="custom-select" id="bremser">
+                <option selected>Velg tuningnivå</option>
+                <option value="BREMS0">Standard</option>
+                <option value="BREMS1">Steg 1</option>
+                <option value="BREMS2">Steg 2</option>
+                <option value="BREMS3">Steg 3</option>
+                <option value="BREMS4">Steg 4</option>
+              </select>
             </div>
-            <select class="custom-select" id="pansring">
-              <option selected>Velg tuningnivå</option>
-              <option value="PANSER0">Standard</option>
-              <option value="PANSER1">Steg 1</option>
-              <option value="PANSER2">Steg 2</option>
-              <option value="PANSER3">Steg 3</option>
-              <option value="PANSER4">Steg 4</option>
-              <option value="PANSER5">Steg 5</option>
-              <option value="PANSER6">Steg 6</option>
-            </select>
-          </div>
 
-          <!--Dette er feltet for senking-->
+            <!--Dette er feltet for girkasse-->
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="senking">Hvilken senking</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="girkasse">Hvilken girkasse</label>
+              </div>
+              <select class="custom-select" id="girkasse">
+                <option selected>Velg tuningnivå</option>
+                <option value="GIR0">Standard</option>
+                <option value="GIR1">Steg 1</option>
+                <option value="GIR2">Steg 2</option>
+                <option value="GIR3">Steg 3</option>
+              </select>
             </div>
-            <select class="custom-select" id="senking">
-              <option selected>Velg tuningnivå</option>
-              <option value="SENK0">Standard</option>
-              <option value="SENK1">Steg 1</option>
-              <option value="SENK2">Steg 2</option>
-              <option value="SENK3">Steg 3</option>
-              <option value="SENK4">Steg 4</option>
-              <option value="SENK5">Steg 5</option>
-            </select>
-          </div>
 
-          <!--Dette er feltet for turbo-->
+            <!--Dette er feltet for motor-->
 
-        <div class="row">
-            <div class="col-sm-2"></div>
-          <div class="card">
-            <div class="card-body">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="turbo">
-                <label class="custom-control-label" for="turbo">Ønsker kunden turbo?</label>
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="motor">Hvilken motor</label>
+              </div>
+              <select class="custom-select" id="motor">
+                <option selected>Velg tuningnivå</option>
+                <option value="MOTOR0">Standard</option>
+                <option value="MOTOR1">Steg 1</option>
+                <option value="MOTOR2">Steg 2</option>
+                <option value="MOTOR3">Steg 3</option>
+                <option value="MOTOR4">Steg 4</option>
+                <option value="MOTOR5">Steg 5</option>
+              </select>
+            </div>
+
+            <!--Dette er feltet for pansring-->
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="pansring">Hvilken pansring</label>
+              </div>
+              <select class="custom-select" id="pansring">
+                <option selected>Velg tuningnivå</option>
+                <option value="PANSER0">Standard</option>
+                <option value="PANSER1">Steg 1</option>
+                <option value="PANSER2">Steg 2</option>
+                <option value="PANSER3">Steg 3</option>
+                <option value="PANSER4">Steg 4</option>
+                <option value="PANSER5">Steg 5</option>
+                <option value="PANSER6">Steg 6</option>
+              </select>
+            </div>
+
+            <!--Dette er feltet for senking-->
+
+            <div class="input-group mb-3">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="senking">Hvilken senking</label>
+              </div>
+              <select class="custom-select" id="senking">
+                <option selected>Velg tuningnivå</option>
+                <option value="SENK0">Standard</option>
+                <option value="SENK1">Steg 1</option>
+                <option value="SENK2">Steg 2</option>
+                <option value="SENK3">Steg 3</option>
+                <option value="SENK4">Steg 4</option>
+                <option value="SENK5">Steg 5</option>
+              </select>
+            </div>
+
+            <!--Dette er feltet for turbo-->
+
+            <div class="row">
+              <div class="col">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="turbo">
+                  <label class="custom-control-label" for="turbo">Ønsker kunden turbo?</label>
+                </div>
+              </div>
+
+              <!--Dette er feltet for importbil-->
+
+              <div class="col">
+                <div class="custom-control custom-switch">
+                  <input type="checkbox" class="custom-control-input" id="import">
+                  <label class="custom-control-label" for="import">Er det en importbil?</label>
+                </div>
               </div>
             </div>
           </div>
-
-          <!--Dette er feltet for importbil-->
-
-        <div class="row">
-              <div class="col-sm-2"></div>
-          <div class="card">
-            <div class="card-body">
-              <div class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" id="import">
-                <label class="custom-control-label" for="import">Er det en importbil?</label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
           <!-- Dette er feltet for prisen kunde skal se -->
 
@@ -180,8 +172,6 @@
         <button type="button" class="btn btn-primary btn-lg">Registrer</button>
       </div>
     </div>
-  </div>
-  </div>
   </div>
 </body>
 </html>
