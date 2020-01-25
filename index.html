@@ -13,8 +13,8 @@
         <!-- Dette er feltet for valg av mekaniker -->
         <form>
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Mekaniker</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <label for="mekaniker">Mekaniker</label>
+            <select class="form-control" id="mekaniker">
               <option>Isak Danielsen</option>
               <option>Ansatt2</option>
               <option>Ansatt3</option>
@@ -26,8 +26,8 @@
           <!-- Dette er feltet for valg av bedriftsavtale -->
 
           <div class="form-group">
-            <label for="exampleFormControlSelect1">Bedriftsavtale?</label>
-            <select class="form-control" id="exampleFormControlSelect1">
+            <label for="bedriftsavtale">Bedriftsavtale?</label>
+            <select class="form-control" id="bedriftsavtale">
               <option>Politiet</option>
               <option>Ambulansen</option>
               <option>Trøndertaxi</option>
@@ -47,8 +47,8 @@
           <!-- Dette er control select for å definere bilens verdi -->
 
           <div class="form-group">
-            <label for="exampleFormControlSelect2">Hva er bilens verdi?</label>
-            <select multiple class="form-control" id="exampleFormControlSelect2">
+            <label for="verdi">Hva er bilens verdi?</label>
+            <select multiple class="form-control" id="verdi">
               <option>0K-100K</option>
               <option>100K-200K</option>
               <option>200K-500K</option>
@@ -79,9 +79,9 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Hvilken girkasse</label>
+              <label class="input-group-text" for="girkasse">Hvilken girkasse</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="girkasse">
               <option selected>Velg tuningnivå</option>
               <option value="GIR0">Standard</option>
               <option value="GIR1">Steg 1</option>
@@ -94,9 +94,9 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Hvilken motor</label>
+              <label class="input-group-text" for="motor">Hvilken motor</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="motor">
               <option selected>Velg tuningnivå</option>
               <option value="MOTOR0">Standard</option>
               <option value="MOTOR1">Steg 1</option>
@@ -111,9 +111,9 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Hvilken pansring</label>
+              <label class="input-group-text" for="pansring">Hvilken pansring</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="pansring">
               <option selected>Velg tuningnivå</option>
               <option value="PANSER0">Standard</option>
               <option value="PANSER1">Steg 1</option>
@@ -129,9 +129,9 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Hvilken senking</label>
+              <label class="input-group-text" for="senking">Hvilken senking</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="senking">
               <option selected>Velg tuningnivå</option>
               <option value="SENK0">Standard</option>
               <option value="SENK1">Steg 1</option>
@@ -146,23 +146,23 @@
 
           <div class="card">
             <div class="card-body">
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck1">
-            <label class="custom-control-label" for="customCheck1">Ønsker kunden turbo?</label>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="turbo">
+                <label class="custom-control-label" for="turbo">Ønsker kunden turbo?</label>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
 
           <!--Dette er feltet for importbil-->
 
           <div class="card">
             <div class="card-body">
-          <div class="custom-control custom-checkbox">
-            <input type="checkbox" class="custom-control-input" id="customCheck1">
-            <label class="custom-control-label" for="customCheck1">Er det en importbil?</label>
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="import">
+                <label class="custom-control-label" for="import">Er det en importbil?</label>
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
           <!-- Dette er feltet for prisen kunde skal se -->
           
           <b>Totalpris til kunde</b>
