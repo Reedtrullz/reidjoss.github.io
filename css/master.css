@@ -1,4 +1,16 @@
 .loginbox {
   max-width: 30rem;
-  margin-top: 5rem;
+}
+
+.tuningskjema .col {
+  min-width: 25rem;
+}
+
+form .card,
+.loginbox .card {
+  margin-top: 1rem;
+}
+
+.btn-sendskjema {
+  margin: 1rem;
 }
