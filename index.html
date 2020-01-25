@@ -10,6 +10,8 @@
   <div class="container-fluid">
     <div class="row justify-content-md-center">
       <div class="col-lg-8 col-sm-12 skjemaboks">
+        <div class="card tuningskjema">
+          <div class="card-body">
         <!-- Dette er feltet for valg av mekaniker -->
         <form>
           <div class="form-group">
@@ -63,9 +65,9 @@
 
           <div class="input-group mb-3">
             <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01">Hvilke bremser</label>
+              <label class="input-group-text" for="bremser">Hvilke bremser</label>
             </div>
-            <select class="custom-select" id="inputGroupSelect01">
+            <select class="custom-select" id="bremser">
               <option selected>Velg tuningnivå</option>
               <option value="BREMS0">Standard</option>
               <option value="BREMS1">Steg 1</option>
@@ -144,6 +146,8 @@
 
           <!--Dette er feltet for turbo-->
 
+        <div class="row">
+            <div class="col-sm-2"></div>
           <div class="card">
             <div class="card-body">
               <div class="custom-control custom-switch">
@@ -155,6 +159,8 @@
 
           <!--Dette er feltet for importbil-->
 
+        <div class="row">
+              <div class="col-sm-2"></div>
           <div class="card">
             <div class="card-body">
               <div class="custom-control custom-switch">
@@ -163,6 +169,9 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
           <!-- Dette er feltet for prisen kunde skal se -->
 
           <b>Totalpris til kunde</b>
@@ -171,6 +180,8 @@
         <button type="button" class="btn btn-primary btn-lg">Registrer</button>
       </div>
     </div>
+  </div>
+  </div>
   </div>
 </body>
 </html>
