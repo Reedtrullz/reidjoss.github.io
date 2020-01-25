@@ -1,4 +1,11 @@
 .loginbox {
   max-width: 30rem;
-  margin-top: 5rem;
+}
+
+.tuning .col {
+  min-width: 25rem;
+}
+
+form .card {
+  margin-top: 1rem;
 }
