@@ -35,6 +35,12 @@ function selectfield($name, $label, $options) {
   echo "</select></div>";
 }
 
+function submit_button($name, $label, $style, $enable_criteria) {
+  echo "<input type='submit' class='btn btn-$style' value='$label' name='$name'";
+  if (!$enable_criteria) echo " disabled";
+  echo ">";
+}
+
 ?>
 
 <body>
@@ -110,11 +116,12 @@ function selectfield($name, $label, $options) {
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="totalpris-addon">Totalpris til kunde</span>
                   </div>
-                  <input type="text" class="form-control" id="totalpris" aria-describedby="totalpris-addon" value="<?php $price_total ?>" readonly>
+                  <input type="text" class="form-control" id="totalpris" aria-describedby="totalpris-addon" value="<?php echo $price_total ?>.00 kr" readonly>
                 </div>
               </div>
             </div>
-            <input type="submit" class="btn btn-primary btn-sendskjema" value="Oppdater">
+            <?php echo submit_button("update", "Oppdater", "info", 1) ?>
+            <?php echo submit_button("send", "Lagre", "success", $price_total) ?>
           </form>
         </div>
       </div>
