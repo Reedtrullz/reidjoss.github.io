@@ -13,7 +13,7 @@
       <div class="col-lg-8 col-sm-12 skjemaboks">
         <div class="tuningskjema">
           <!-- Dette er feltet for valg av mekaniker -->
-          <form>
+          <form action="skjema.php">
             <div class="card">
               <h5 class="card-header">Info</h5>
               <div class="card-body">
