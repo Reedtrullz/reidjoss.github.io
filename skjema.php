@@ -18,7 +18,8 @@ $tuningoptions = array("Standard", "Steg 1", "Steg 2", "Steg 3", "Steg 4");
 
 $boolean_labels = array("Velg", "Ja", "Nei");
 
-$price_total = 0; // SETT INN FORMEL HER!
+$motorpris = array(0, 100, 200, 300, 400);
+$bremsepris = array(0, 50, 100, 150, 200);
 
 function optionslist($options, $initial) {
   foreach($options as $option) {
@@ -34,6 +35,26 @@ function selectfield($name, $label, $options) {
   echo optionslist($options, $_GET[$name]);
   echo "</select></div>";
 }
+
+function submit_button($name, $label, $style, $enable_criteria) {
+  echo "<input type='submit' class='btn btn-$style' value='$label' name='$name'";
+  if (!$enable_criteria) echo " disabled";
+  echo ">";
+}
+
+function get_price($item, $options, $pricelist) {
+  $i = 0;
+  foreach($options as $option) {
+    if ($option == $item) return $pricelist[$i];
+    $i ++;
+  }
+  return 0;
+}
+
+$price_total = 0;
+
+$price_total += get_price($_GET["motor"], $tuningoptions, $motorpris);
+$price_total += get_price($_GET["bremser"], $tuningoptions, $motorpris);
 
 ?>
 
@@ -110,11 +131,12 @@ function selectfield($name, $label, $options) {
                   <div class="input-group-prepend">
                     <span class="input-group-text" id="totalpris-addon">Totalpris til kunde</span>
                   </div>
-                  <input type="text" class="form-control" id="totalpris" aria-describedby="totalpris-addon" value="<?php $price_total ?>" readonly>
+                  <input type="text" class="form-control" id="totalpris" aria-describedby="totalpris-addon" value="<?php echo $price_total ?>.00 kr" readonly>
                 </div>
               </div>
             </div>
-            <input type="submit" class="btn btn-primary btn-sendskjema" value="Oppdater">
+            <?php echo submit_button("update", "Oppdater", "info", 1) ?>
+            <?php echo submit_button("send", "Lagre", "success", $price_total) ?>
           </form>
         </div>
       </div>
