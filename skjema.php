@@ -7,13 +7,28 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/master.css">
 </head>
+
+<?php
+$mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
+$agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
+
+function optionslist($options, $initial) {
+  foreach($options as $option) {
+    echo "<option";
+    if($option == $initial) echo " selected";
+    echo ">$option</option>";
+  }
+}
+
+?>
+
 <body>
   <div class="container-fluid">
     <div class="row justify-content-md-center">
       <div class="col-lg-8 col-sm-12 skjemaboks">
         <div class="tuningskjema">
           <!-- Dette er feltet for valg av mekaniker -->
-          <form action="skjema.php">
+          <form action="skjema.php" method="get">
             <div class="card">
               <h5 class="card-header">Info</h5>
               <div class="card-body">
@@ -24,11 +39,7 @@
                         <label class="input-group-text" for="mekaniker">Mekaniker</label>
                       </div>
                       <select class="custom-select" id="mekaniker">
-                        <option>Isak Danielsen</option>
-                        <option>Ansatt2</option>
-                        <option>Ansatt3</option>
-                        <option>Ansatt4</option>
-                        <option>Ansatt5</option>
+                        <?php echo optionslist($mechanics, $_GET["mekaniker"]); ?>
                       </select>
                     </div>
                   </div>
@@ -41,19 +52,7 @@
                         <label class="input-group-text" for="avtale">Bedriftsavtale</label>
                       </div>
                       <select class="custom-select" id="avtale">
-                        <option>Politiet</option>
-                        <option>Ambulansen</option>
-                        <option>Trøndertaxi</option>
-                        <option>Bilforhandleren</option>
-                        <option>DNB Bank</option>
-                        <option>Eiendomsmegler1</option>
-                        <option>Flyskolen</option>
-                        <option>Bahama Mamas</option>
-                        <option>AutoXO</option>
-                        <option>Bennys</option>
-                        <option>Oslo Advokaten</option>
-                        <option>Statens Vegvesen</option>
-                        <option>Arbeidsledig</option>
+                        <?php echo optionslist($agreements, $_GET[avtale]); ?>
                       </select>
                     </div>
                   </div>
@@ -216,7 +215,7 @@
                 </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-sendskjema">Registrer</button>
+            <input type="submit" class="btn btn-primary btn-sendskjema" value="Oppdater">
           </form>
         </div>
       </div>
