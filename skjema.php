@@ -18,8 +18,12 @@ $tuningoptions = array("Standard", "Steg 1", "Steg 2", "Steg 3", "Steg 4");
 
 $boolean_labels = array("Velg", "Ja", "Nei");
 
-$motorpris = array(0, 100, 200, 300, 400);
-$bremsepris = array(0, 50, 100, 150, 200);
+$motorpris = array(0, 2500, 3750, 5000, 7000);
+$bremsepris = array(0, 2000, 2500, 3750, 4750);
+$girpris = array(0, 2500, 3750, 8500);
+$pansringpris = array(0, 2000, 2900, 3250, 4100, 4500, 8500)
+$senkingpris = array(0, 2000, 2350, 3250, 4000, 4750)
+$turbopris = array (0, 7500)
 
 function optionslist($options, $initial) {
   foreach($options as $option) {
@@ -54,7 +58,11 @@ function get_price($item, $options, $pricelist) {
 $price_total = 0;
 
 $price_total += get_price($_GET["motor"], $tuningoptions, $motorpris);
-$price_total += get_price($_GET["bremser"], $tuningoptions, $motorpris);
+$price_total += get_price($_GET["bremser"], $tuningoptions, $bremsepris);
+$price_total += get_price($_GET["gir"], $tuningoptions, $girpris);
+$price_total += get_price($_GET["pansring"], $tuningoptions, $pansringpris);
+$price_total += get_price($_GET["senking"], $tuningoptions, $senkingpris);
+$price_total += get_price($_GET["turbo"], $tuningoptions, $turbopris);
 
 ?>
 
