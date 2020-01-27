@@ -21,9 +21,9 @@ $boolean_labels = array("Velg", "Ja", "Nei");
 $motorpris = array(0, 2500, 3750, 5000, 7000);
 $bremsepris = array(0, 2000, 2500, 3750, 4750);
 $girpris = array(0, 2500, 3750, 8500);
-$pansringpris = array(0, 2000, 2900, 3250, 4100, 4500, 8500)
-$senkingpris = array(0, 2000, 2350, 3250, 4000, 4750)
-$turbopris = array (0, 7500)
+$pansringpris = array(0, 2000, 2900, 3250, 4100, 4500, 8500);
+$senkingpris = array(0, 2000, 2350, 3250, 4000, 4750);
+$turbopris = array (0, 7500);
 
 function optionslist($options, $initial) {
   foreach($options as $option) {
