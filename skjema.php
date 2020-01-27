@@ -41,9 +41,8 @@ function selectfield($name, $label, $options) {
 }
 
 function submit_button($name, $label, $style, $enable_criteria) {
-  echo "<input type='submit' class='btn btn-$style' value='$label' name='$name'";
-  if (!$enable_criteria) echo " disabled";
-  echo ">";
+  $disabled = $enable_criteria ? "" : " disabled";
+  return "<input type='submit' class='btn btn-$style' value='$label' name='$name'$disabled>";
 }
 
 function get_price($item, $options, $pricelist) {
