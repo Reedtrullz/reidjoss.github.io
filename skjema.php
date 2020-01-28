@@ -62,7 +62,7 @@ $price_total += get_price($_GET["bremser"], $tuningoptions, $bremsepris);
 $price_total += get_price($_GET["gir"], $tuningoptions, $girpris);
 $price_total += get_price($_GET["pansring"], $tuningoptions, $pansringpris);
 $price_total += get_price($_GET["senking"], $tuningoptions, $senkingpris);
-$price_total += get_price($_GET["turbo"], $tuningoptions, $turbopris);
+$price_total += get_price($_GET["turbo"], $boolean_labels, $turbopris);
 
 ?>
 
