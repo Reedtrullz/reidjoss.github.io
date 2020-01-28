@@ -16,20 +16,30 @@ $agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren",
 $prices = array("100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill");
 $tuningoptions = array("Standard", "Steg 1", "Steg 2", "Steg 3", "Steg 4", "Steg 5", "Steg 6");
 
-$boolean_labels = array("Velg", "Ja", "Nei");
+$boolean_labels = array("Velg", "Nei", "Ja");
 
 $motorpris = array(0, 2500, 3750, 5000, 7000);
 $bremsepris = array(0, 2000, 2500, 3750, 4750);
 $girpris = array(0, 2500, 3750, 8500);
 $pansringpris = array(0, 2000, 2900, 3250, 4100, 4500, 8500);
 $senkingpris = array(0, 2000, 2350, 3250, 4000, 4750);
-$turbopris = array (0, 7500);
+
+$turbomap = new \Ds\Map(["Nei" => 0, "Ja" => 7500]);
+$motormap = new \DS\Map(["Standard" => 0, "Steg 1" => 2500, "Steg 2" => 3750, "Steg 3" => 5000, "Steg 4" => 7000]);
+$bremsemap = new \DS\Map(["Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2500, "Steg 3" => 3750, "Steg 4" => 4750]);
+$girmap = new \DS\Map(["Standard" => 0, "Steg 1" => 2500, "Steg 2" => 3750, "Steg 3" => 8500]);
+$pansringmap = new \DS\Map(["Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2900, "Steg 3" => 3250, "Steg 4" => 4100, "Steg 5" => 4500, "Steg 6" => 8500]);
+$senkingmap = new \DS\Map(["Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2350, "Steg 3" => 3250, "Steg 4" => 4000, "Steg 5" => 4750]);
+
+// Liste med prosenter kan legges inn sånn:
+// $avtaleprosent(0.9, 1.1 ....);
+$turbopris = new \DS\Map(["Nei" => 0, "Ja" => 7500]);
 // rekkefølgen på $agreements "Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig"
-$agreements = array(1.1, 1.1, 1.1, 1.1, 0.95, 0.90, 1.1, 1.1, 1.1, 0.90, 1.1, 0.95, 1.1);
+$agreements = new \DS\Map(["Politiet" => 1.1, "Ambulansen" => 1.1, "Trøndertaxi" => 1.1, "Bilforhandleren" => 1.1, "DNB Bank" => 0.95, "Eiendomsmegler1" => 0.90, "Flyskolen" => 1.1, "Bahama Mamas" => 1.1, "AutoXO" => 1.1, "Bennys" => 0.90, "Oslo Advokaten" => 1.1, "Statens Vegvesen" => 0.95, "Arbeidsledig" => 1.1]);
 // rekkefølgen på $prices "100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill"
-$prices = array(1.6, 1.8, 1.9, 2, 2.5, 3, 4);
+$prices = new \DS\Map(["100k til 200k" => 1.6, "200k til 500k" => 1.8, "500k til 1 mill" => 1.9, "1mill til 1.5mill" => 2, "1.5mill til 2mill" => 2.5, "2mill til 3mill" => 3, "3 mill +" => 4]);
 // rekkefølgen på $boolean_labels(import?) er "Velg" "Ja" "Nei"
-$boolean_labels = array(0, 1.3, 1);
+$import = new \DS\Map(["Nei" => 1.3, "Ja" => 1]);
 
 function optionslist($options, $initial) {
   foreach($options as $option) {
@@ -39,17 +49,49 @@ function optionslist($options, $initial) {
   }
 }
 
+function selectfield_map($name, $label, $map) {
+  $initial = $_GET[$name];
+  echo "<div class='input-group mb-3'><div class='input-group-prepend''><label class='input-group-text' for='$name'>$label</label></div>";
+  echo "<select class='custom-select' id='$name' name='$name'>";
+  foreach($map->keys() as $key) {
+    $price = $map[$key];
+    $selected = $price == $initial ? " selected" : "";
+    echo "<option value='$map[$key]'$selected>$key ($price,-)</option>";
+  }
+  echo "</select></div>";
+}
+
+function selectfield_percentage($name, $label, $map) {
+  $initial = $_GET[$name];
+  echo "<div class='input-group mb-3'><div class='input-group-prepend''><label class='input-group-text' for='$name'>$label</label></div>";
+  echo "<select class='custom-select' id='$name' name='$name'>";
+  foreach($map->keys() as $key) {
+    $factor = $map[$key];
+    $selected = $key == $initial ? " selected" : "";
+    echo "<option value='$key'$selected>$key ";
+    echo human_percentage($factor);
+    echo "</option>";
+  }
+  echo "</select></div>";
+}
+
+function human_percentage($factor) {
+  $percentage = $factor > 1 ? ($factor * 100 - 100) : $factor < 1 ? 10 * (1 - $factor) : 0;
+  $percentage = $factor * 100 - 100;
+  $sign = $percentage > 0 ? "+" : "";
+  echo "($sign$percentage%)";
+}
+
 function selectfield($name, $label, $options) {
-  echo "<div class=\"input-group mb-3\"><div class=\"input-group-prepend\"><label class=\"input-group-text\" for=\"$name\">$label</label></div>";
-  echo "<select class=\"custom-select\" id=\"$name\" name=\"$name\">";
+  echo "<div class='input-group mb-3'><div class='input-group-prepend''><label class='input-group-text' for='$name'>$label</label></div>";
+  echo "<select class='custom-select' id='$name' name='$name'>";
   echo optionslist($options, $_GET[$name]);
   echo "</select></div>";
 }
 
 function submit_button($name, $label, $style, $enable_criteria) {
-  echo "<input type='submit' class='btn btn-$style' value='$label' name='$name'";
-  if (!$enable_criteria) echo " disabled";
-  echo ">";
+  $disabled = $enable_criteria ? "" : " disabled";
+  return "<input type='submit' class='btn btn-$style' value='$label' name='$name'$disabled>";
 }
 
 function get_price($item, $options, $pricelist) {
@@ -63,12 +105,15 @@ function get_price($item, $options, $pricelist) {
 
 $price_total = 0;
 
-$price_total += get_price($_GET["motor"], $tuningoptions, $motorpris);
-$price_total += get_price($_GET["bremser"], $tuningoptions, $bremsepris);
-$price_total += get_price($_GET["gir"], $tuningoptions, $girpris);
-$price_total += get_price($_GET["pansring"], $tuningoptions, $pansringpris);
-$price_total += get_price($_GET["senking"], $tuningoptions, $senkingpris);
-$price_total += get_price($_GET["turbo"], $boolean_labels, $turbopris);
+$price_total += $_GET["motor"];
+$price_total += $_GET["bremser"];
+$price_total += $_GET["gir"];
+$price_total += $_GET["pansring"];
+$price_total += $_GET["senking"];
+$price_total += $_GET["turbo"];
+
+// Sånn kan du legge inn prosenter.
+// $price_total = $price_total * get_price($_GET["avtale"], $agreements, $avtaleprosent);
 
 ?>
 
@@ -89,17 +134,17 @@ $price_total += get_price($_GET["turbo"], $boolean_labels, $turbopris);
                   <!-- Dette er feltet for valg av bedriftsavtale -->
 
                   <div class="col">
-                    <?php echo selectfield("avtale", "Bedriftsavtale", $agreements); ?>
+                    <?php echo selectfield_percentage("avtale", "Bedriftsavtale", $agreements); ?>
                   </div>
                 </div>
 
                 <div class="form-row">
                   <div class="col">
-                    <?php echo selectfield("verdi", "Bilens verdi", $prices); ?>
+                    <?php echo selectfield_percentage("verdi", "Bilens verdi", $prices); ?>
                   </div>
 
                   <div class="col">
-                    <?php echo selectfield("import", "Importbil?", $boolean_labels); ?>
+                    <?php echo selectfield_percentage("import", "Importbil?", $import); ?>
                   </div>
                 </div>
               </div>
@@ -111,28 +156,28 @@ $price_total += get_price($_GET["turbo"], $boolean_labels, $turbopris);
 
                 <div class="form-row">
                   <div class="col">
-                    <?php echo selectfield("bremser", "Bremser", $tuningoptions); ?>
+                    <?php selectfield_map("bremser", "Bremser", $bremsemap); ?>
                   </div>
 
                   <div class="col">
-                    <?php echo selectfield("gir", "Girkasse", $tuningoptions); ?>
+                    <?php selectfield_map("gir", "Girkasse", $girmap); ?>
                   </div>
 
 
                   <div class="col">
-                    <?php echo selectfield("motor", "Motor", $tuningoptions); ?>
+                    <?php selectfield_map("motor", "Motor", $motormap); ?>
                   </div>
 
                   <div class="col">
-                    <?php echo selectfield("pansring", "Pansring", $tuningoptions); ?>
+                    <?php selectfield_map("pansring", "Pansring", $pansringmap); ?>
                   </div>
 
                   <div class="col">
-                    <?php echo selectfield("senking", "Senking", $tuningoptions); ?>
+                    <?php selectfield_map("senking", "Senking", $senkingmap); ?>
                   </div>
 
                   <div class="col">
-                    <?php echo selectfield("turbo", "Turbo", $boolean_labels); ?>
+                    <?php selectfield_map("turbo", "Turbo", $turbomap); ?>
                   </div>
                 </div>
               </div>
