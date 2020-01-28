@@ -25,6 +25,11 @@ $pansringpris = array(0, 2000, 2900, 3250, 4100, 4500, 8500);
 $senkingpris = array(0, 2000, 2350, 3250, 4000, 4750);
 $turbopris = array (0, 0, 7500);
 
+$turbo = new \Ds\Map(["Nei" => 0, "Ja" => 7500]);
+
+// Liste med prosenter kan legges inn sånn:
+// $avtaleprosent(0.9, 1.1 ....);
+
 function optionslist($options, $initial) {
   foreach($options as $option) {
     echo "<option";
@@ -62,6 +67,9 @@ $price_total += get_price($_GET["gir"], $tuningoptions, $girpris);
 $price_total += get_price($_GET["pansring"], $tuningoptions, $pansringpris);
 $price_total += get_price($_GET["senking"], $tuningoptions, $senkingpris);
 $price_total += get_price($_GET["turbo"], $boolean_labels, $turbopris);
+
+// Sånn kan du legge inn prosenter.
+// $price_total = $price_total * get_price($_GET["avtale"], $agreements, $avtaleprosent);
 
 ?>
 
