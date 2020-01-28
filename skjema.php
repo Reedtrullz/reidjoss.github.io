@@ -105,12 +105,8 @@ function get_price($item, $options, $pricelist) {
 
 $price_total = 0;
 
-$price_total += $_GET["motor"];
-$price_total += $_GET["bremser"];
-$price_total += $_GET["gir"];
-$price_total += $_GET["pansring"];
-$price_total += $_GET["senking"];
-$price_total += $_GET["turbo"];
+$price_total = $_GET["motor"] + $_GET["bremser"] + $_GET["gir"] + $_GET["pansring"] + $_GET["senking"] + $_GET["turbo"];
+$price_total = $price_total * $agreements[$_GET["avtale"]] * $prices[$_GET["verdi"]] * $import[$_GET["import"]];
 
 // Sånn kan du legge inn prosenter.
 // $price_total = $price_total * get_price($_GET["avtale"], $agreements, $avtaleprosent);
