@@ -23,12 +23,18 @@ $bremsepris = array(0, 2000, 2500, 3750, 4750);
 $girpris = array(0, 2500, 3750, 8500);
 $pansringpris = array(0, 2000, 2900, 3250, 4100, 4500, 8500);
 $senkingpris = array(0, 2000, 2350, 3250, 4000, 4750);
-$turbopris = array (0, 0, 7500);
 
 $turbo = new \Ds\Map(["Nei" => 0, "Ja" => 7500]);
 
 // Liste med prosenter kan legges inn sånn:
 // $avtaleprosent(0.9, 1.1 ....);
+$turbopris = array (0, 7500);
+// rekkefølgen på $agreements "Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig"
+$agreements = array(1.1, 1.1, 1.1, 1.1, 0.95, 0.90, 1.1, 1.1, 1.1, 0.90, 1.1, 0.95, 1.1);
+// rekkefølgen på $prices "100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill"
+$prices = array(1.6, 1.8, 1.9, 2, 2.5, 3, 4);
+// rekkefølgen på $boolean_labels(import?) er "Velg" "Ja" "Nei"
+$boolean_labels = array(0, 1.3, 1);
 
 function optionslist($options, $initial) {
   foreach($options as $option) {
