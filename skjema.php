@@ -13,8 +13,8 @@
 <?php
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
 $agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
-$prices = array("100k til 200k", "200k til 500k", "500k til 1 mill");
-$tuningoptions = array("Standard", "Steg 1", "Steg 2", "Steg 3", "Steg 4");
+$prices = array("100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill");
+$tuningoptions = array("Standard", "Steg 1", "Steg 2", "Steg 3", "Steg 4", "Steg 5", "Steg 6");
 
 $boolean_labels = array("Velg", "Ja", "Nei");
 
