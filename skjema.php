@@ -24,22 +24,22 @@ $girpris = array(0, 2500, 3750, 8500);
 $pansringpris = array(0, 2000, 2900, 3250, 4100, 4500, 8500);
 $senkingpris = array(0, 2000, 2350, 3250, 4000, 4750);
 
-$turbomap = new \Ds\Map(["Nei" => 0, "Ja" => 7500]);
-$motormap = new \DS\Map(["Standard" => 0, "Steg 1" => 2500, "Steg 2" => 3750, "Steg 3" => 5000, "Steg 4" => 7000]);
-$bremsemap = new \DS\Map(["Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2500, "Steg 3" => 3750, "Steg 4" => 4750]);
-$girmap = new \DS\Map(["Standard" => 0, "Steg 1" => 2500, "Steg 2" => 3750, "Steg 3" => 8500]);
-$pansringmap = new \DS\Map(["Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2900, "Steg 3" => 3250, "Steg 4" => 4100, "Steg 5" => 4500, "Steg 6" => 8500]);
-$senkingmap = new \DS\Map(["Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2350, "Steg 3" => 3250, "Steg 4" => 4000, "Steg 5" => 4750]);
+$turbomap = array("Nei" => 0, "Ja" => 7500);
+$motormap = array("Standard" => 0, "Steg 1" => 2500, "Steg 2" => 3750, "Steg 3" => 5000, "Steg 4" => 7000);
+$bremsemap = array("Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2500, "Steg 3" => 3750, "Steg 4" => 4750);
+$girmap = array("Standard" => 0, "Steg 1" => 2500, "Steg 2" => 3750, "Steg 3" => 8500);
+$pansringmap = array("Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2900, "Steg 3" => 3250, "Steg 4" => 4100, "Steg 5" => 4500, "Steg 6" => 8500);
+$senkingmap = array("Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2350, "Steg 3" => 3250, "Steg 4" => 4000, "Steg 5" => 4750);
 
 // Liste med prosenter kan legges inn sånn:
 // $avtaleprosent(0.9, 1.1 ....);
-$turbopris = new \DS\Map(["Nei" => 0, "Ja" => 7500]);
+$turbopris = array("Nei" => 0, "Ja" => 7500);
 // rekkefølgen på $agreements "Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig"
-$agreements = new \DS\Map(["Politiet" => 1.1, "Ambulansen" => 1.1, "Trøndertaxi" => 1.1, "Bilforhandleren" => 1.1, "DNB Bank" => 0.95, "Eiendomsmegler1" => 0.90, "Flyskolen" => 1.1, "Bahama Mamas" => 1.1, "AutoXO" => 1.1, "Bennys" => 0.90, "Oslo Advokaten" => 1.1, "Statens Vegvesen" => 0.95, "Arbeidsledig" => 1.1]);
+$agreements = array("Politiet" => 1.1, "Ambulansen" => 1.1, "Trøndertaxi" => 1.1, "Bilforhandleren" => 1.1, "DNB Bank" => 0.95, "Eiendomsmegler1" => 0.90, "Flyskolen" => 1.1, "Bahama Mamas" => 1.1, "AutoXO" => 1.1, "Bennys" => 0.90, "Oslo Advokaten" => 1.1, "Statens Vegvesen" => 0.95, "Arbeidsledig" => 1.1);
 // rekkefølgen på $prices "100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill"
-$prices = new \DS\Map(["100k til 200k" => 1.6, "200k til 500k" => 1.8, "500k til 1 mill" => 1.9, "1mill til 1.5mill" => 2, "1.5mill til 2mill" => 2.5, "2mill til 3mill" => 3, "3 mill +" => 4]);
+$prices = array("100k til 200k" => 1.6, "200k til 500k" => 1.8, "500k til 1 mill" => 1.9, "1mill til 1.5mill" => 2, "1.5mill til 2mill" => 2.5, "2mill til 3mill" => 3, "3 mill +" => 4);
 // rekkefølgen på $boolean_labels(import?) er "Velg" "Ja" "Nei"
-$import = new \DS\Map(["Nei" => 1.3, "Ja" => 1]);
+$import = array("Nei" => 1.3, "Ja" => 1);
 
 function optionslist($options, $initial) {
   foreach($options as $option) {
@@ -53,8 +53,7 @@ function selectfield_map($name, $label, $map) {
   $initial = $_GET[$name];
   echo "<div class='input-group mb-3'><div class='input-group-prepend''><label class='input-group-text' for='$name'>$label</label></div>";
   echo "<select class='custom-select' id='$name' name='$name'>";
-  foreach($map->keys() as $key) {
-    $price = $map[$key];
+  foreach($map as $key => $price) {
     $selected = $price == $initial ? " selected" : "";
     echo "<option value='$map[$key]'$selected>$key ($price,-)</option>";
   }
@@ -65,8 +64,7 @@ function selectfield_percentage($name, $label, $map) {
   $initial = $_GET[$name];
   echo "<div class='input-group mb-3'><div class='input-group-prepend''><label class='input-group-text' for='$name'>$label</label></div>";
   echo "<select class='custom-select' id='$name' name='$name'>";
-  foreach($map->keys() as $key) {
-    $factor = $map[$key];
+  foreach($map as $key => $factor) {
     $selected = $key == $initial ? " selected" : "";
     echo "<option value='$key'$selected>$key ";
     echo human_percentage($factor);
