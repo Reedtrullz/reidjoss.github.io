@@ -37,7 +37,7 @@ $turbopris = array("Nei" => 0, "Ja" => 7500);
 // rekkefølgen på $agreements "Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig"
 $agreements = array("Politiet" => 1.1, "Ambulansen" => 1.1, "Trøndertaxi" => 1.1, "Bilforhandleren" => 1.1, "DNB Bank" => 0.95, "Eiendomsmegler1" => 0.90, "Flyskolen" => 1.1, "Bahama Mamas" => 1.1, "AutoXO" => 1.1, "Bennys" => 0.90, "Oslo Advokaten" => 1.1, "Statens Vegvesen" => 0.95, "Arbeidsledig" => 1.1);
 // rekkefølgen på $prices "100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill"
-$prices = array("100k til 200k" => 1.6, "200k til 500k" => 1.8, "500k til 1 mill" => 1.9, "1mill til 1.5mill" => 2, "1.5mill til 2mill" => 2.5, "2mill til 3mill" => 3, "3 mill +" => 4);
+$prices = array("0k til 100K" => 1.6, "100k til 200k" => 1.8, "200k til 500k" => 1.9, "500k til 1 mill" => 2, "1mill til 1.5mill" => 2.5, "1.5mill til 2mill" => 3, "2mill til 3mill" => 4, "3 mill +" => 5);
 // rekkefølgen på $boolean_labels(import?) er "Velg" "Ja" "Nei"
 $import = array("Nei" => 1, "Ja" => 1.3);
 
