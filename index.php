@@ -16,13 +16,13 @@
           <div class="card text-center">
             <div class="card-body">
               <h5 class="card-title">Innlogging</h5>
-              <form>
+              <form method="post" action="skjema.php">
                 <div class="form-group">
-                  <input type="text" class="form-control" id="exampleInputText" aria-describedby="TextHelp" placeholder="Brukernavn">
+                  <input type="text" class="form-control" id="user" name="user" aria-describedby="TextHelp" placeholder="Brukernavn">
                   <small id="emailHelp" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Passord">
+                  <input type="password" class="form-control" id="pass" name="pass" placeholder="Passord">
                 </div>
                 <input type="submit" class="btn btn-primary" value="Logg inn">
               </form>

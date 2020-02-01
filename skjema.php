@@ -11,6 +11,41 @@
 </head>
 
 <?php
+
+$authenticated = false;
+
+try {
+  include "db.php";
+  $user = $_POST["user"];
+    $stmt = $conn->prepare("SELECT salt, hash FROM users WHERE name='$user'");
+    $stmt->execute();
+
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach(new RecursiveArrayIterator($stmt->fetchAll()) as $k=>$v) {
+      $hash = $v["hash"];
+      $salt = $v["salt"];
+      $ppass = $_POST["pass"];
+      if (strcmp(md5($salt . $ppass), $hash) != 0) {
+        include 'index.php';
+        die();
+      } else {
+        $authenticated = true;
+      }
+    }
+}
+catch(PDOException $e) {
+    echo "Error: " . $e->getMessage();
+}
+$conn = null;
+
+if ($authenticated == false) {
+  include 'index.php';
+  die();
+}
+
+// echo " " + $hash + " ";
+// echo
+
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
 $agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
 $prices = array("100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill");
