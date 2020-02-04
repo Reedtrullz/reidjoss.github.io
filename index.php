@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION["authenticated"])) {
+  include 'skjema.php';
+  die();
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -16,13 +23,13 @@
           <div class="card text-center">
             <div class="card-body">
               <h5 class="card-title">Innlogging</h5>
-              <form method="post" action="skjema.php">
+              <form>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="user" name="user" aria-describedby="TextHelp" placeholder="Brukernavn">
+                  <input type="text" class="form-control" id="exampleInputText" aria-describedby="TextHelp" placeholder="Brukernavn">
                   <small id="emailHelp" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="pass" name="pass" placeholder="Passord">
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Passord">
                 </div>
                 <input type="submit" class="btn btn-primary" value="Logg inn">
               </form>
@@ -45,25 +52,5 @@
       }
     }
     ?>
-    <title>User Login</title>
-    <form name="frmUser" method="post" action="">
-    	<div class="message"><?php if($message!="") { echo $message; } ?></div>
-    		<table border="0" cellpadding="10" cellspacing="1" width="500" align="center" class="tblLogin">
-    			<tr class="tableheader">
-    			<td align="center" colspan="2">Enter Login Details</td>
-    			</tr>
-    			<tr class="tablerow">
-    			<td>
-    			<input type="text" name="userName" placeholder="User Name" class="login-input"></td>
-    			</tr>
-    			<tr class="tablerow">
-    			<td>
-    			<input type="password" name="password" placeholder="Password" class="login-input"></td>
-    			</tr>
-    			<tr class="tableheader">
-    			<td align="center" colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"></td>
-    			</tr>
-    		</table>
-    </form>
   </body>
 </html>
