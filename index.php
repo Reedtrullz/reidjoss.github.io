@@ -52,5 +52,29 @@ if (isset($_SESSION["authenticated"])) {
       }
     }
     ?>
+<<<<<<< HEAD
+=======
+    <title>User Login</title>
+    <form name="frmUser" method="post" action="">
+    	<div class="message"><?php if($message!="") { echo $message; } ?></div>
+      <div class="message"><?php include 'db.php'; ?></div>
+    		<table border="0" cellpadding="10" cellspacing="1" width="500" align="center" class="tblLogin">
+    			<tr class="tableheader">
+    			<td align="center" colspan="2">Enter Login Details</td>
+    			</tr>
+    			<tr class="tablerow">
+    			<td>
+    			<input type="text" name="userName" placeholder="User Name" class="login-input"></td>
+    			</tr>
+    			<tr class="tablerow">
+    			<td>
+    			<input type="password" name="password" placeholder="Password" class="login-input"></td>
+    			</tr>
+    			<tr class="tableheader">
+    			<td align="center" colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"></td>
+    			</tr>
+    		</table>
+    </form>
+>>>>>>> 48ef8632551700b9035b5ac81e9081ea28a8b6bf
   </body>
 </html>
