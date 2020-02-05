@@ -44,7 +44,7 @@ if ($authenticated == false) {
 }
 
 // echo " " + $hash + " ";
-// echo
+// echo //
 
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
 $agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
