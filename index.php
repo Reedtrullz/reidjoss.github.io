@@ -26,6 +26,7 @@
                 </div>
                 <input type="submit" class="btn btn-primary" value="Logg inn">
               </form>
+              <!-- Force Push -->
             </div>
           </div>
         </div>
