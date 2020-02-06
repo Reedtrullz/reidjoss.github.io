@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
@@ -29,22 +30,19 @@ try {
         include 'index.php';
         die();
       } else {
-        $authenticated = true;
-      }
-    }
-}
-catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-$conn = null;
+        $authenticated = true;    }
+        }
+        catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
 
-if ($authenticated == false) {
-  include 'index.php';
-  die();
-}
+        if ($authenticated == false) {
+          include 'index.php';
+          die();
+        }
 
 // echo " " + $hash + " ";
-// echo //
 
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
 $agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
