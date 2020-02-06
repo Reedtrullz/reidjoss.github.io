@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<?php
+session_start();
+if (isset($_SESSION["authenticated"])) {
+  include 'skjema.php';
+  die();
+}
+?>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
