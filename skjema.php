@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
@@ -14,34 +15,34 @@
 
 $authenticated = false;
 
-try {
-  include "db.php";
-  $user = $_POST["user"];
-    $stmt = $conn->prepare("SELECT salt, hash FROM users WHERE name='$user'");
-    $stmt->execute();
+<?php
+session_start();
+if (!isset($_SESSION["authenticated"])) {
+  try {
+    include "db.php";
+    $user = $_POST["user"];
+      $stmt = $conn->prepare("SELECT salt, hash FROM users WHERE name='$user'");
+      $stmt->execute();
 
-    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    foreach(new RecursiveArrayIterator($stmt->fetchAll()) as $k=>$v) {
-      $hash = $v["hash"];
-      $salt = $v["salt"];
-      $ppass = $_POST["pass"];
-      if (strcmp(md5($salt . $ppass), $hash) != 0) {
-        include 'index.php';
-        die();
-      } else {
-        $authenticated = true;
+      $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+      foreach(new RecursiveArrayIterator($stmt->fetchAll()) as $k=>$v) {
+        $hash = $v["hash"];
+        $salt = $v["salt"];
+        $ppass = $_POST["pass"];
+        if (strcmp(md5($salt . $ppass), $hash) != 0) {
+          include 'index.php';
+          die();
+        } else {
+          $_SESSION["authenticated"] = 1;
+        }
       }
-    }
+  }
+  catch(PDOException $e) {
+      echo "Error: " . $e->getMessage();
+  }
+  $conn = null;
 }
-catch(PDOException $e) {
-    echo "Error: " . $e->getMessage();
-}
-$conn = null;
-
-if ($authenticated == false) {
-  include 'index.php';
-  die();
-}
+?>
 
 // echo " " + $hash + " ";
 // echo //
