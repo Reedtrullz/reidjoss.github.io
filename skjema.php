@@ -15,37 +15,34 @@
 
 $authenticated = false;
 
-<?php
-session_start();
-if (!isset($_SESSION["authenticated"])) {
-  try {
-    include "db.php";
-    $user = $_POST["user"];
-      $stmt = $conn->prepare("SELECT salt, hash FROM users WHERE name='$user'");
-      $stmt->execute();
+try {
+  include "db.php";
+  $user = $_POST["user"];
+    $stmt = $conn->prepare("SELECT salt, hash FROM users WHERE name='$user'");
+    $stmt->execute();
 
-      $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-      foreach(new RecursiveArrayIterator($stmt->fetchAll()) as $k=>$v) {
-        $hash = $v["hash"];
-        $salt = $v["salt"];
-        $ppass = $_POST["pass"];
-        if (strcmp(md5($salt . $ppass), $hash) != 0) {
+    $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    foreach(new RecursiveArrayIterator($stmt->fetchAll()) as $k=>$v) {
+      $hash = $v["hash"];
+      $salt = $v["salt"];
+      $ppass = $_POST["pass"];
+      if (strcmp(md5($salt . $ppass), $hash) != 0) {
+        include 'index.php';
+        die();
+      } else {
+        $authenticated = true;    }
+        }
+        catch(PDOException $e) {
+            echo "Error: " . $e->getMessage();
+        }
+        $conn = null;
+
+        if ($authenticated == false) {
           include 'index.php';
           die();
-        } else {
-          $_SESSION["authenticated"] = 1;
         }
-      }
-  }
-  catch(PDOException $e) {
-      echo "Error: " . $e->getMessage();
-  }
-  $conn = null;
-}
-?>
 
 // echo " " + $hash + " ";
-// echo //
 
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
 $agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
