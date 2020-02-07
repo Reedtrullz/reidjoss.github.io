@@ -27,7 +27,6 @@ if (!isset($_SESSION["authenticated"])) {
 }
 ?>
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
@@ -40,13 +39,6 @@ if (!isset($_SESSION["authenticated"])) {
 </head>
 
 <?php
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-
 $authenticated = false;
 
 try {
@@ -77,19 +69,6 @@ try {
         }
 
 // echo " " + $hash + " ";
-
-=======
->>>>>>> parent of a0820ee... cookiefiks i git
-=======
->>>>>>> parent of a0820ee... cookiefiks i git
-=======
->>>>>>> parent of a0820ee... cookiefiks i git
-=======
->>>>>>> parent of a0820ee... cookiefiks i git
-=======
->>>>>>> parent of a0820ee... cookiefiks i git
-=======
->>>>>>> parent of a0820ee... cookiefiks i git
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
 $agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
 $prices = array("100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill");
