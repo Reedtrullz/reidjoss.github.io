@@ -41,6 +41,7 @@ if (!isset($_SESSION["authenticated"])) {
 
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 $authenticated = false;
 
@@ -73,6 +74,8 @@ try {
 
 // echo " " + $hash + " ";
 
+=======
+>>>>>>> parent of a0820ee... cookiefiks i git
 =======
 >>>>>>> parent of a0820ee... cookiefiks i git
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
