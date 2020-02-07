@@ -1,3 +1,10 @@
+<?php
+session_start();
+if (isset($_SESSION["authenticated"])) {
+  include 'skjema.php';
+  die();
+}
+?>
 <!DOCTYPE html>
 <?php
 session_start();
@@ -23,21 +30,58 @@ if (isset($_SESSION["authenticated"])) {
           <div class="card text-center">
             <div class="card-body">
               <h5 class="card-title">Innlogging</h5>
-              <form method="post" action="skjema.php">
+              <form>
                 <div class="form-group">
-                  <input type="text" class="form-control" id="user" name="user" aria-describedby="TextHelp" placeholder="Brukernavn">
+                  <input type="text" class="form-control" id="exampleInputText" aria-describedby="TextHelp" placeholder="Brukernavn">
                   <small id="emailHelp" class="form-text text-muted"></small>
                 </div>
                 <div class="form-group">
-                  <input type="password" class="form-control" id="pass" name="pass" placeholder="Passord">
+                  <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Passord">
                 </div>
                 <input type="submit" class="btn btn-primary" value="Logg inn">
               </form>
-              <!-- Force Push -->
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <?php
+    $message="";
+    if(count($_POST)>0) {
+      $conn = mysqli_connect("localhost:3306","test1","test12","satest");
+      $result = mysqli_query($conn,"SELECT * FROM users WHERE user_name='" . $_POST["userName"] . "' and password = '". $_POST["password"]."'");
+      $count  = mysqli_num_rows($result);
+      if($count==0) {
+        $message = "Invalid Username or Password!";
+      } else {
+        $message = "You are successfully authenticated!";
+      }
+    }
+    ?>
+<<<<<<< HEAD
+=======
+    <title>User Login</title>
+    <form name="frmUser" method="post" action="">
+    	<div class="message"><?php if($message!="") { echo $message; } ?></div>
+      <div class="message"><?php include 'db.php'; ?></div>
+    		<table border="0" cellpadding="10" cellspacing="1" width="500" align="center" class="tblLogin">
+    			<tr class="tableheader">
+    			<td align="center" colspan="2">Enter Login Details</td>
+    			</tr>
+    			<tr class="tablerow">
+    			<td>
+    			<input type="text" name="userName" placeholder="User Name" class="login-input"></td>
+    			</tr>
+    			<tr class="tablerow">
+    			<td>
+    			<input type="password" name="password" placeholder="Password" class="login-input"></td>
+    			</tr>
+    			<tr class="tableheader">
+    			<td align="center" colspan="2"><input type="submit" name="submit" value="Submit" class="btnSubmit"></td>
+    			</tr>
+    		</table>
+    </form>
+>>>>>>> 48ef8632551700b9035b5ac81e9081ea28a8b6bf
   </body>
 </html>
