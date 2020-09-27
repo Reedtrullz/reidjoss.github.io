@@ -57,7 +57,6 @@ try {
         die();
       } else {
         $authenticated = true;    }
-        }
         catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
@@ -66,7 +65,7 @@ try {
         if ($authenticated == false) {
           include 'index.php';
           die();
-        }
+        }}}
 
 // echo " " + $hash + " ";
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
