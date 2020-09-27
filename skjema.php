@@ -41,7 +41,7 @@ if (!isset($_SESSION["authenticated"])) {
 <?php
 $authenticated = false;
 
-try {
+/* try {
   include "db.php";
   $user = $_POST["user"];
     $stmt = $conn->prepare("SELECT salt, hash FROM users WHERE name='$user'");
@@ -65,7 +65,7 @@ try {
         if ($authenticated == false) {
           include 'index.php';
           die();
-        }}}
+        }}} */
 
 // echo " " + $hash + " ";
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
