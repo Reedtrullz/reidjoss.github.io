@@ -1,4 +1,4 @@
-<?php
+<?php /*
 session_start();
 if (!isset($_SESSION["authenticated"])) {
   try {
@@ -25,7 +25,7 @@ if (!isset($_SESSION["authenticated"])) {
   }
   $conn = null;
 }
-?>
+*/ ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -37,8 +37,9 @@ if (!isset($_SESSION["authenticated"])) {
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/master.css">
 </head>
-# /* Prøver nok en gang å fjerne autentisering */
+
 <?php
+/*
 $authenticated = false;
 
 try {
@@ -67,7 +68,7 @@ try {
           include 'index.php';
           die();
         }
-
+*/
 // echo " " + $hash + " ";
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
 $agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
