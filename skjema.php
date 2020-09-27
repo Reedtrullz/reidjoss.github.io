@@ -70,8 +70,8 @@ try {
         }
 */
 // echo " " + $hash + " ";
-$mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");
-$agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
+$mechanics = array("Jompa Tormann", "Kenneth Johansen", "Johnny Kråkevik", "Daniel Johansen", "Remi Haugen", "Gunnar Vestbø", "Celine Nydal", "Tommy Kristiansen", "Jacob Dahl", "Andreas Karlsen", "Amir Seljom", "Vladimir Tito", "Erling Magnussen");
+# $agreements = array("Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig");
 $prices = array("100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill");
 $tuningoptions = array("Standard", "Steg 1", "Steg 2", "Steg 3", "Steg 4", "Steg 5", "Steg 6");
 
@@ -94,11 +94,11 @@ $senkingmap = array("Standard" => 0, "Steg 1" => 2000, "Steg 2" => 2350, "Steg 3
 // $avtaleprosent(0.9, 1.1 ....);
 $turbopris = array("Nei" => 0, "Ja" => 7500);
 // rekkefølgen på $agreements "Politiet", "Ambulansen", "Trøndertaxi", "Bilforhandleren", "DNB Bank", "Eiendomsmegler1", "Flyskolen", "Bahama Mamas", "AutoXO", "Bennys", "Oslo Advokaten", "Statens Vegvesen", "Arbeidsledig"
-$agreements = array("Politiet" => 1.1, "Ambulansen" => 1.1, "Trøndertaxi" => 1.1, "Bilforhandleren" => 1.1, "DNB Bank" => 0.95, "Eiendomsmegler1" => 0.90, "Flyskolen" => 1.1, "Bahama Mamas" => 1.1, "AutoXO" => 1.1, "Bennys" => 0.90, "Oslo Advokaten" => 1.1, "Statens Vegvesen" => 0.95, "Arbeidsledig" => 1.1);
+# $agreements = array("Politiet" => 1.1, "Ambulansen" => 1.1, "Trøndertaxi" => 1.1, "Bilforhandleren" => 1.1, "DNB Bank" => 0.95, "Eiendomsmegler1" => 0.90, "Flyskolen" => 1.1, "Bahama Mamas" => 1.1, "AutoXO" => 1.1, "Bennys" => 0.90, "Oslo Advokaten" => 1.1, "Statens Vegvesen" => 0.95, "Arbeidsledig" => 1.1);
 // rekkefølgen på $prices "100k til 200k", "200k til 500k", "500k til 1 mill", "1mill til 1.5mill", "1.5mill til 2mill", "2mill til 3mill"
-$prices = array("0k til 100K" => 1.6, "100k til 200k" => 1.8, "200k til 500k" => 1.9, "500k til 1 mill" => 2, "1mill til 1.5mill" => 2.5, "1.5mill til 2mill" => 3, "2mill til 3mill" => 4, "3 mill +" => 5);
+$prices = array("0k til 200K/MC" => 1.0, "200k til 500k" => 1.1, "500k PLUSS" => 1.2); # , "500k til 1 mill" => 2, "1mill til 1.5mill" => 2.5, "1.5mill til 2mill" => 3, "2mill til 3mill" => 4, "3 mill +" => 5
 // rekkefølgen på $boolean_labels(import?) er "Velg" "Ja" "Nei"
-$import = array("Nei" => 1, "Ja" => 1.3);
+# $import = array("Nei" => 1, "Ja" => 1.3);
 
 function optionslist($options, $initial) {
   foreach($options as $option) {
@@ -163,7 +163,7 @@ function get_price($item, $options, $pricelist) {
 $price_total = 0;
 
 $price_total = $_GET["motor"] + $_GET["bremser"] + $_GET["gir"] + $_GET["pansring"] + $_GET["senking"] + $_GET["turbo"];
-$price_total = $price_total * $agreements[$_GET["avtale"]] * $prices[$_GET["verdi"]] * $import[$_GET["import"]];
+$price_total = $price_total * $prices[$_GET["verdi"]];
 
 // Sånn kan du legge inn prosenter.
 // $price_total = $price_total * get_price($_GET["avtale"], $agreements, $avtaleprosent);
@@ -186,9 +186,9 @@ $price_total = $price_total * $agreements[$_GET["avtale"]] * $prices[$_GET["verd
 
                   <!-- Dette er feltet for valg av bedriftsavtale -->
 
-                  <div class="col">
+<!--                  <div class="col">
                     <?php echo selectfield_percentage("avtale", "Bedriftsavtale", $agreements); ?>
-                  </div>
+                  </div> -->
                 </div>
 
                 <div class="form-row">
@@ -196,9 +196,9 @@ $price_total = $price_total * $agreements[$_GET["avtale"]] * $prices[$_GET["verd
                     <?php echo selectfield_percentage("verdi", "Bilens verdi", $prices); ?>
                   </div>
 
-                  <div class="col">
+<!--                  <div class="col">
                     <?php echo selectfield_percentage("import", "Importbil?", $import); ?>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </div>
