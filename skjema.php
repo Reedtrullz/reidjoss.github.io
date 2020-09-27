@@ -1,4 +1,4 @@
-<?php
+/* <?php
 session_start();
 if (!isset($_SESSION["authenticated"])) {
   try {
@@ -25,7 +25,7 @@ if (!isset($_SESSION["authenticated"])) {
   }
   $conn = null;
 }
-?>
+?> */
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>

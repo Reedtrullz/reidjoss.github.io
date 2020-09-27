@@ -1,10 +1,10 @@
-<?php
+/* <?php
 session_start();
 if (isset($_SESSION["authenticated"])) {
   include 'skjema.php';
   die();
 }
-?>
+?> */
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
