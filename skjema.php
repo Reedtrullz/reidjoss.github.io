@@ -1,4 +1,4 @@
-/* <?php
+<?php
 session_start();
 if (!isset($_SESSION["authenticated"])) {
   try {
@@ -25,7 +25,7 @@ if (!isset($_SESSION["authenticated"])) {
   }
   $conn = null;
 }
-?> */
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -41,7 +41,7 @@ if (!isset($_SESSION["authenticated"])) {
 <?php
 $authenticated = false;
 
-/* try {
+try {
   include "db.php";
   $user = $_POST["user"];
     $stmt = $conn->prepare("SELECT salt, hash FROM users WHERE name='$user'");
@@ -57,6 +57,7 @@ $authenticated = false;
         die();
       } else {
         $authenticated = true;    }
+        }
         catch(PDOException $e) {
             echo "Error: " . $e->getMessage();
         }
@@ -65,7 +66,7 @@ $authenticated = false;
         if ($authenticated == false) {
           include 'index.php';
           die();
-        }}} */
+        }
 
 // echo " " + $hash + " ";
 $mechanics = array("Danielsen", "Isaksen", "Jensen", "Olsen");

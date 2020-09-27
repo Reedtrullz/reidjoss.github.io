@@ -1,10 +1,10 @@
-/* <?php
+<?php
 session_start();
 if (isset($_SESSION["authenticated"])) {
   include 'skjema.php';
   die();
 }
-?> */
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -23,7 +23,7 @@ if (isset($_SESSION["authenticated"])) {
           <div class="card text-center">
             <div class="card-body">
               <h5 class="card-title">Innlogging</h5>
-              <form>
+              <form action="skjema.php" method="POST">
                 <div class="form-group">
                   <input type="text" class="form-control" id="user" name="user" aria-describedby="TextHelp" placeholder="Brukernavn">
                 </div>
